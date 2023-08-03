@@ -6,27 +6,17 @@ namespace AuthenticationAndauthorization.Brokers.StorageBrokers
     public partial class StorageBroker
     {
         public DbSet<Product> Products { get; set; }
-        public ValueTask<Product> InsertProductAsync(Product product)
-        {
-            throw new NotImplementedException();
-        }
+        public async ValueTask<Product> InsertProductAsync(Product product) =>
+            await InsertAsync(product);
 
-        public IQueryable<Product> SelectAllProducts()
-        {
-            throw new NotImplementedException();
-        }
+        public IQueryable<Product> SelectAllProducts() =>
+            SelectAll<Product>();
 
-        public ValueTask<Product> SelectProductByIdAsync(Guid productId)
-        {
-            throw new NotImplementedException();
-        }
-        public ValueTask<Product> UpdateProductAsync(Product product)
-        {
-            throw new NotImplementedException();
-        }
-        public ValueTask<Product> DeleteProductAsync(Product product)
-        {
-            throw new NotImplementedException();
-        }
+        public async ValueTask<Product> SelectProductByIdAsync(Guid productId) =>
+            await SelectAsync<Product>(productId);
+        public async ValueTask<Product> UpdateProductAsync(Product product) =>
+            await UpdateAsync(product);
+        public async ValueTask<Product> DeleteProductAsync(Product product) =>
+            await DeleteAsync(product);
     }
 }
