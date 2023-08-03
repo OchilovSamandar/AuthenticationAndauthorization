@@ -12,6 +12,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StorageBroker>();
 var app = builder.Build();
 
+ static void AddBrokers(IServiceCollection services)
+{
+    services.AddTransient<IStorageBroker, StorageBroker>();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
