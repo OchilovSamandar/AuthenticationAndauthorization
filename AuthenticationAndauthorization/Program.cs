@@ -17,6 +17,10 @@ var app = builder.Build();
     services.AddTransient<IStorageBroker,StorageBroker>();
 }
 
+ static void AddBrokers(IServiceCollection services)
+{
+    services.AddTransient<IStorageBroker, StorageBroker>();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
