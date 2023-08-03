@@ -1,4 +1,5 @@
 using AuthenticationAndauthorization.Brokers.StorageBrokers;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ builder.Services.AddSwaggerGen();
 //database
 builder.Services.AddDbContext<StorageBroker>();
 var app = builder.Build();
+ static void AddBrokers(IServiceCollection services)
+{
+    services.AddTransient<IStorageBroker,StorageBroker>();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
