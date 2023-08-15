@@ -5,7 +5,6 @@ namespace AuthenticationAndauthorization.Brokers.StorageBrokers
 {
     public partial class StorageBroker
     {
-        public DbSet<User> Users { get; set; }
         public async ValueTask<User> SelectUserByIdAsync(Guid UserId) =>
             await SelectAsync<User>(UserId);
 

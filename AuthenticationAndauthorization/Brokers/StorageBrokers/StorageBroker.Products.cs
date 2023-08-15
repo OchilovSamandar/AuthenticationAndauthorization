@@ -5,7 +5,6 @@ namespace AuthenticationAndauthorization.Brokers.StorageBrokers
 {
     public partial class StorageBroker
     {
-        public DbSet<Product> Products { get; set; }
         public async ValueTask<Product> InsertProductAsync(Product product) =>
             await InsertAsync(product);
 
