@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //database
-string v = builder.Configuration.GetConnectionString("ConnectionStrings");
+string v = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(v));
 
 var app = builder.Build();
@@ -22,7 +22,7 @@ var app = builder.Build();
     services.AddTransient<IStorageBroker,StorageBroker>();
 }
 
-    builder.Services.AddTransient<IStorageBroker, StorageBroker>();
+   // builder.Services.AddTransient<IStorageBroker, StorageBroker>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
